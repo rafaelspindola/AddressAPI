@@ -37,8 +37,5 @@ public class PessoaController {
         Optional<Pessoa> pessoa = pessoaService.editarPessoa(id, pessoaAtualizada);
         return pessoa.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
-
-
-
 }
 
