@@ -7,6 +7,7 @@ import com.attornatus.addressapi.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,4 +29,11 @@ public class EnderecoController {
         }
         throw new Exception("Pessoa não encontrada");
     }
+
+    @GetMapping
+    public List<Endereco> listarEnderecos(@PathVariable Long pessoaId) throws Exception {
+        return enderecoService.listarEnderecos(pessoaId);
+    }
+
+    
 }

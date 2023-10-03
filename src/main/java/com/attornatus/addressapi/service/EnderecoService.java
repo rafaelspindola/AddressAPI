@@ -7,6 +7,7 @@ import com.attornatus.addressapi.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,6 +24,15 @@ public class EnderecoService {
         if (pessoa.isPresent()) {
             endereco.setPessoa(pessoa.get());
             return enderecoRepository.save(endereco);
+        }
+        throw new Exception("Pessoa não encontrada");
+    }
+
+    public List<Endereco> listarEnderecos(Long pessoaId) throws Exception {
+        Optional<Pessoa> pessoa = pessoaRepository.findById(pessoaId);
+        if (pessoa.isPresent()) {
+            Pessoa pessoaEncontrada = pessoa.get();
+            return pessoaEncontrada.getEnderecos();
         }
         throw new Exception("Pessoa não encontrada");
     }
