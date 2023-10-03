@@ -2,7 +2,6 @@ package com.attornatus.addressapi.models;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,8 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private LocalDate dataNascimento;
+
+    private String data_nascimento;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Endereco> enderecos = new ArrayList<>();
@@ -35,13 +35,14 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public String getData_nascimento() {
+        return data_nascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setData_nascimento(String data_nascimento) {
+        this.data_nascimento = data_nascimento;
     }
+
 
     public List<Endereco> getEnderecos() {
         return enderecos;

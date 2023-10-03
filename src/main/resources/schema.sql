@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Pessoa cascade;
 CREATE TABLE Pessoa (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    data_nascimento DATE
+    data_nascimento VARCHAR(10)
 );
 
 DROP TABLE IF EXISTS Endereco cascade;
