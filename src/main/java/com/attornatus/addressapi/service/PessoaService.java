@@ -26,4 +26,13 @@ public class PessoaService {
         return pessoaRepository.findAll();
     }
 
+    public Optional<Pessoa> editarPessoa(Long id, Pessoa pessoaAtualizada) {
+        Optional<Pessoa> pessoa = pessoaRepository.findById(id);
+        if (pessoa.isPresent()) {
+            pessoaAtualizada.setId(id);
+            return Optional.of(pessoaRepository.save(pessoaAtualizada));
+        }
+        return Optional.empty();
+    }
+
 }

@@ -32,5 +32,13 @@ public class PessoaController {
         return pessoaService.listarPessoas();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Pessoa> editarPessoa(@PathVariable Long id, @RequestBody Pessoa pessoaAtualizada) {
+        Optional<Pessoa> pessoa = pessoaService.editarPessoa(id, pessoaAtualizada);
+        return pessoa.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+
+
 }
 
