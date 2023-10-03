@@ -36,4 +36,22 @@ public class EnderecoService {
         }
         throw new Exception("Pessoa não encontrada");
     }
+
+    public void definirEnderecoPrincipal(Long pessoaId, Long enderecoId) throws Exception {
+        List<Endereco> enderecos = listarEnderecos(pessoaId);
+
+        // Find the selected address by ID
+        Optional<Endereco> enderecoOpc = enderecos.stream().filter(endereco -> endereco.getId().equals(enderecoId)).findFirst();
+
+        if (enderecoOpc.isPresent()) {
+            Endereco enderecoSelecionado = enderecoOpc.get();
+            enderecoSelecionado.setPrincipal(true);
+            enderecoRepository.save(enderecoSelecionado);
+
+            enderecos.stream().filter(endereco -> !endereco.getId().equals(enderecoId)).forEach(endereco -> endereco.setPrincipal(false));
+            enderecoRepository.saveAll(enderecos);
+        } else {
+            throw new Exception("Endereço não encontrado.");
+        }
+    }
 }

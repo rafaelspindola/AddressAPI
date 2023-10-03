@@ -5,6 +5,7 @@ import com.attornatus.addressapi.models.Pessoa;
 import com.attornatus.addressapi.repository.PessoaRepository;
 import com.attornatus.addressapi.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,5 +36,10 @@ public class EnderecoController {
         return enderecoService.listarEnderecos(pessoaId);
     }
 
+    @PostMapping("{enderecoId}/principal/")
+    public ResponseEntity<String> definirEnderecoPrincipal(@PathVariable Long pessoaId, @PathVariable Long enderecoId) throws Exception {
+        enderecoService.definirEnderecoPrincipal(pessoaId, enderecoId);
+        return ResponseEntity.ok("Endereço principal definido com sucesso");
+    }
     
 }
