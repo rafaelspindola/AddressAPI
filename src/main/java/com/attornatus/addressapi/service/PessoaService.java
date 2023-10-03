@@ -5,6 +5,7 @@ import com.attornatus.addressapi.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,4 +21,9 @@ public class PessoaService {
     public Optional<Pessoa> consultarPessoa(Long id) {
         return pessoaRepository.findById(id);
     }
+
+    public List<Pessoa> listarPessoas() {
+        return pessoaRepository.findAll();
+    }
+
 }

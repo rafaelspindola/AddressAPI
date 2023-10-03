@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/api/v1/pessoas")
+@RequestMapping("/api/v1/pessoas")
 public class PessoaController {
 
     @Autowired
@@ -24,6 +25,11 @@ public class PessoaController {
     @PostMapping
     public Pessoa criarPessoa(@RequestBody Pessoa pessoa) {
         return pessoaService.criarPessoa(pessoa);
+    }
+
+    @GetMapping
+    public List<Pessoa> listarPessoas() {
+        return pessoaService.listarPessoas();
     }
 
 }
