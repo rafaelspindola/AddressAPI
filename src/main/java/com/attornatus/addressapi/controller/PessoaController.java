@@ -16,13 +16,9 @@ public class PessoaController {
     private PessoaService pessoaService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> consultarPessoa(@PathVariable Long id) {
+    public ResponseEntity<Pessoa> consultarPessoa(@PathVariable Long id) {
         Optional<Pessoa> pessoa = pessoaService.consultarPessoa(id);
-        if (pessoa.isPresent()) {
-            return ResponseEntity.ok(pessoa.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return pessoa.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
