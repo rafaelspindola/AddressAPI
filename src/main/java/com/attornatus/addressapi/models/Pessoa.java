@@ -1,5 +1,6 @@
 package com.attornatus.addressapi.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Pessoa {
 
     private String data_nascimento;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Endereco> enderecos = new ArrayList<>();
 

@@ -1,5 +1,6 @@
 package com.attornatus.addressapi.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Endereco {
     private String cidade;
     private boolean principal;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
