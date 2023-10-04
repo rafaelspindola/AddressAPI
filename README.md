@@ -49,7 +49,7 @@ A estrutura do projeto está organizada da seguinte forma:
 ## Endpoints
 Esta API fornece os seguintes endpoints:
 
-    GET /api/v1/pessoas/{id}: Recupere uma pessoa pelo ID.
+    GET /api/v1/pessoas/{id}: Busque uma pessoa pelo ID.
     POST /api/v1/pessoas: Crie uma nova pessoa.
     GET /api/v1/pessoas: Liste todas as pessoas.
     PUT /api/v1/pessoas/{id}: Edite uma pessoa existente.
