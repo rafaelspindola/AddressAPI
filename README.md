@@ -6,6 +6,7 @@ Este projeto Spring Boot foi desenvolvido para fornecer uma API simples para ger
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Endpoints](#endpoints)
 - [Testes](#testes)
+- [AWS](#aws)
 
 ## Iniciando
 
@@ -66,3 +67,10 @@ Para executar os testes unitários, use o seguinte comando:
 ```
 ./mvnw test
 ```
+
+## AWS
+Foi feito o deploy na AWS Elastic Beanstalk. O link para acesso à API é:
+```
+http://attornatus-h2-env.eba-s6c2yxqe.sa-east-1.elasticbeanstalk.com
+```
+Uma vez acessada, é possível testar todos os endpoints supracitados para verificar o funcionamento da API.
