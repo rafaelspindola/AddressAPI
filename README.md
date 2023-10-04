@@ -58,11 +58,40 @@ Esta API fornece os seguintes endpoints:
     GET /api/v1/pessoas/{pessoaId}/enderecos: Liste todos os endereços associados a uma pessoa.
     POST /api/v1/pessoas/{pessoaId}/enderecos/{enderecoId}/principal: Defina um endereço como principal para uma pessoa.
 
+**Exemplos de JSON para testar endpoints**
+
+POST /api/v1/pessoas: Crie uma nova pessoa
+```json
+{
+    "nome": "Lucas",
+    "data_nascimento": "2000/01/10"
+}
+```
+PUT /api/v1/pessoas/{id}: Edite uma pessoa existente
+```json
+{
+    "nome": "Lucas",
+    "data_nascimento": "1997/04/15"
+}
+```
+POST /api/v1/pessoas/{pessoaId}/enderecos: Crie um novo endereço para uma pessoa
+```json
+{
+    "logradouro": "Rua E",
+    "cep": "65432-321",
+    "numero": "345",
+    "cidade": "Rio de Janeiro",
+    "principal": false
+}
+```
+
+
 ## Testes
 
 Este projeto inclui testes para garantir a qualidade e a confiabilidade do código. 
 Os testes unitários são usados para testar unidades individuais de código, como classes de serviço e controladores. Eles são armazenados no diretório src/test/java.
-Para executar os testes unitários, use o seguinte comando:
+Foram criados testes unitários para todas as funcionalidades.
+Para executá-los, use o seguinte comando:
 
 ```
 ./mvnw test
