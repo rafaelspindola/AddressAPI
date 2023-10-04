@@ -16,6 +16,18 @@ public class Endereco {
     private String cidade;
     private boolean principal;
 
+
+    public Endereco() {
+    }
+
+    public Endereco(String logradouro, String cep, String numero, String cidade, boolean principal) {
+        this.logradouro = logradouro;
+        this.cep = cep;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.principal = principal;
+    }
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
